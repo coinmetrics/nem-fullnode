@@ -12,6 +12,6 @@ USER runner
 # WORKDIR /opt
 # CMD ["./nix.runNis.sh"]
 
-# took from nix.runNis.sh, increased maximum allocation
+# took from nix.runNis.sh, increased minimum and maximum allocation
 WORKDIR /opt/nis
-CMD ["java", "-Xms512M", "-Xmx4G", "-cp", ".:./*:../libs/*", "org.nem.deploy.CommonStarter"]
+CMD ["java", "-Xms4G", "-Xmx5G", "-cp", ".:./*:../libs/*", "org.nem.deploy.CommonStarter"]
