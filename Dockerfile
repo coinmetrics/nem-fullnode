@@ -12,6 +12,9 @@ USER runner
 # WORKDIR /opt
 # CMD ["./nix.runNis.sh"]
 
-# took from nix.runNis.sh, increased minimum and maximum allocation
 WORKDIR /opt/nis
-CMD ["java", "-Xms4G", "-Xmx5G", "-cp", ".:./*:../libs/*", "org.nem.deploy.CommonStarter"]
+
+# took from nix.runNis.sh, increased minimum and maximum allocation
+# increased memory further as the node sometimes gets stuck
+# see https://github.com/NemProject/nem.core/issues/45
+CMD ["java", "-Xms4G", "-Xmx8G", "-XX:+UseG1GC", "-cp", ".:./*:../libs/*", "org.nem.deploy.CommonStarter"]
