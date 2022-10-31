@@ -9,9 +9,6 @@ RUN sed -i 's/level = INFO/level = WARNING/' /opt/nis/logalpha.properties
 RUN useradd -m -u 1000 -s /bin/bash runner
 USER runner
 
-# WORKDIR /opt
-# CMD ["./nix.runNis.sh"]
-
 WORKDIR /opt/nis
 
 # took from nix.runNis.sh, increased minimum and maximum allocation
